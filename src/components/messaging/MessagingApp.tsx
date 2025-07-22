@@ -4,7 +4,7 @@ import { useWallet } from "@/contexts/WalletContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { WalletSetup } from "./WalletSetup";
 import { WalletUnlock } from "./WalletUnlock";
-import { ConversationsList } from "./ConversationsList";
+import { ConversationsListFirebase } from "./ConversationsListFirebase";
 import { FirebaseChatView } from "./FirebaseChatView";
 import { Conversation } from "@/lib/web3/messaging";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -85,7 +85,7 @@ export const MessagingApp: React.FC = () => {
       <div className={`hidden lg:flex h-full ${!isOnline ? 'h-[calc(100%-40px)]' : ''}`}>
         {/* Sidebar - Conversations List */}
         <div className="w-1/3 border-r border-border">
-          <ConversationsList
+          <ConversationsListFirebase
             onSelectConversation={handleSelectConversation}
             selectedConversation={selectedConversation || undefined}
           />
@@ -157,7 +157,7 @@ export const MessagingApp: React.FC = () => {
             onBack={handleBackToList}
           />
         ) : (
-          <ConversationsList
+          <ConversationsListFirebase
             onSelectConversation={handleSelectConversation}
             selectedConversation={selectedConversation || undefined}
           />

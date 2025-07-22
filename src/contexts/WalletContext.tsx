@@ -230,7 +230,7 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
 
     try {
       setError(null);
-      let convs = await listConversations(xmtpClient);
+      let convs = await listConversations(wallet?.address || '');
       
       // Apply blocked users filter
       convs = convs.map(conv => ({
