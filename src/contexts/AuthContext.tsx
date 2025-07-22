@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { generateRecoveryCode, createRecoveryData, saveRecoveryData } from '@/lib/recovery';
 
 export interface User {
   id: string;
@@ -7,6 +8,8 @@ export interface User {
   trustScore: number;
   username: string;
   isVerified: boolean;
+  hasRecoverySetup?: boolean;
+  lastPasswordChange?: number;
 }
 
 interface AuthContextType {
@@ -16,6 +19,8 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<boolean>;
   logout: () => void;
   updateUser: (updates: Partial<User>) => void;
+  changePassword: (oldPassword: string, newPassword: string) => Promise<boolean>;
+  setupRecovery: () => Promise<string>; // Returns recovery code
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -27,7 +32,9 @@ const DEFAULT_ADMIN: User = {
   role: 'admin',
   trustScore: 100,
   username: 'TrustNet Admin',
-  isVerified: true
+  isVerified: true,
+  hasRecoverySetup: true,
+  lastPasswordChange: Date.now()
 };
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -80,6 +87,48 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     }
   };
 
+  const changePassword = async (oldPassword: string, newPassword: string): Promise<boolean> => {
+    if (!user) return false;
+    
+    // For demo purposes, we'll just simulate password change
+    // In real app, you'd verify old password and update it securely
+    if (user.email === 'admin@trustnet.app' && oldPassword === 'DemoAdmin123!') {
+      updateUser({ lastPasswordChange: Date.now() });
+      return true;
+    }
+    
+    // For regular users, simulate successful change
+    updateUser({ lastPasswordChange: Date.now() });
+    return true;
+  };
+
+  const setupRecovery = async (): Promise<string> => {
+    if (!user) throw new Error('No user logged in');
+    
+    try {
+      // Generate recovery code
+      const recoveryCode = generateRecoveryCode();
+      
+      // Create encrypted recovery data
+      const recoveryData = await createRecoveryData({
+        userId: user.id,
+        email: user.email,
+        username: user.username,
+        role: user.role
+      }, recoveryCode);
+
+      // Save recovery data
+      saveRecoveryData(user.id, recoveryData);
+      
+      // Update user to mark recovery as setup
+      updateUser({ hasRecoverySetup: true });
+      
+      return recoveryCode;
+    } catch (error) {
+      throw new Error('Failed to setup recovery');
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -88,7 +137,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         isAdmin: user?.role === 'admin',
         login,
         logout,
-        updateUser
+        updateUser,
+        changePassword,
+        setupRecovery
       }}
     >
       {children}

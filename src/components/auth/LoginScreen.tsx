@@ -4,8 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Shield, Eye, EyeOff } from 'lucide-react';
+import { Shield, Eye, EyeOff, Key } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
+import { AccountRecovery } from '@/components/recovery/AccountRecovery';
 
 export const LoginScreen: React.FC = () => {
   const { login } = useAuth();
@@ -14,6 +15,7 @@ export const LoginScreen: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+  const [showRecovery, setShowRecovery] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,6 +33,17 @@ export const LoginScreen: React.FC = () => {
       setIsLoading(false);
     }
   };
+
+  if (showRecovery) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 flex items-center justify-center p-4">
+        <AccountRecovery 
+          onSuccess={() => setShowRecovery(false)}
+          onCancel={() => setShowRecovery(false)}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary/10 via-background to-secondary/10 p-4">
@@ -103,6 +116,17 @@ export const LoginScreen: React.FC = () => {
                 {isLoading ? 'Signing in...' : 'Sign In'}
               </Button>
             </form>
+
+            <div className="mt-4 text-center">
+              <Button 
+                variant="link" 
+                onClick={() => setShowRecovery(true)}
+                className="text-sm text-muted-foreground hover:text-primary"
+              >
+                <Key className="w-4 h-4 mr-2" />
+                Forgot password? Recover with code
+              </Button>
+            </div>
 
             <div className="text-center space-y-4">
               <div className="text-sm text-muted-foreground">

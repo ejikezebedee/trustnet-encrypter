@@ -112,8 +112,13 @@ export const WalletProvider: React.FC<WalletProviderProps> = ({ children }) => {
       if (wallet && !xmtpClient) {
         try {
           const client = await createXmtpClient(wallet);
-          setXmtpClient(client);
-          setIsXmtpConnected(true);
+          if (client) {
+            setXmtpClient(client);
+            setIsXmtpConnected(true);
+          } else {
+            // Messaging temporarily disabled
+            setIsXmtpConnected(false);
+          }
         } catch (err) {
           setError("Failed to connect to messaging service");
           console.error(err);
