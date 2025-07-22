@@ -1,16 +1,18 @@
 
 import React, { useState, useEffect } from "react";
 import { useWallet } from "@/contexts/WalletContext";
+import { useAuth } from "@/contexts/AuthContext";
 import { WalletSetup } from "./WalletSetup";
 import { WalletUnlock } from "./WalletUnlock";
 import { ConversationsList } from "./ConversationsList";
-import { ChatView } from "./ChatView";
+import { FirebaseChatView } from "./FirebaseChatView";
 import { Conversation } from "@/lib/web3/messaging";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertTriangle, Wifi, WifiOff } from "lucide-react";
 
 export const MessagingApp: React.FC = () => {
-  const { isWalletLoaded, isWalletLocked, hasWalletInStorage, offlineQueue } = useWallet();
+  const { isWalletLoaded, isWalletLocked, hasWalletInStorage, offlineQueue, wallet } = useWallet();
+  const { user } = useAuth();
   const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(null);
   const [showMobileChat, setShowMobileChat] = useState(false);
   const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
@@ -92,8 +94,9 @@ export const MessagingApp: React.FC = () => {
         {/* Main Content - Chat View */}
         <div className="flex-1">
           {selectedConversation ? (
-            <ChatView
+            <FirebaseChatView
               conversation={selectedConversation}
+              currentUserAddress={wallet?.address || user?.email || ''}
               onBack={handleBackToList}
             />
           ) : (
@@ -148,8 +151,9 @@ export const MessagingApp: React.FC = () => {
       {/* Mobile Layout */}
       <div className={`lg:hidden h-full ${!isOnline ? 'h-[calc(100%-40px)]' : ''}`}>
         {showMobileChat && selectedConversation ? (
-          <ChatView
+          <FirebaseChatView
             conversation={selectedConversation}
+            currentUserAddress={wallet?.address || user?.email || ''}
             onBack={handleBackToList}
           />
         ) : (
