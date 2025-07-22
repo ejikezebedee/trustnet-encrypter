@@ -92,7 +92,9 @@ export const MainApp: React.FC = () => {
             </TabsContent>
 
             <TabsContent value="marketplace" className="h-full m-0">
-              <MarketplaceTab language="en" />
+              <WalletProvider>
+                <MarketplaceTab language="en" />
+              </WalletProvider>
             </TabsContent>
 
             {isAdmin && (
