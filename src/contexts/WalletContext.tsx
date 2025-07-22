@@ -18,7 +18,7 @@ import {
   MessageStatus,
   MessagingPreferences,
   DEFAULT_MESSAGING_PREFERENCES
-} from "@/lib/web3/messaging";
+} from "@/lib/web3/messaging/index";
 
 interface WalletContextType {
   // Wallet state
