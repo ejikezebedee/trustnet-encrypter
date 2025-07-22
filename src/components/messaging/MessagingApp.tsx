@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { useWallet } from "@/contexts/WalletContext";
 import { WalletSetup } from "./WalletSetup";
 import { WalletUnlock } from "./WalletUnlock";
 import { ConversationsList } from "./ConversationsList";
 import { ChatView } from "./ChatView";
 import { Conversation } from "@/lib/web3/messaging";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { AlertTriangle, Wifi, WifiOff } from "lucide-react";
 
 export const MessagingApp: React.FC = () => {
-  const { isWalletLoaded, isWalletLocked, hasWalletInStorage } = useWallet();
+  const { isWalletLoaded, isWalletLocked, hasWalletInStorage, offlineQueue } = useWallet();
   const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(null);
   const [showMobileChat, setShowMobileChat] = useState(false);
+  const [isOnline, setIsOnline] = useState<boolean>(navigator.onLine);
+
+  // Check online status
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
 
   // Show loading state while checking wallet status
   if (!isWalletLoaded) {
@@ -45,8 +63,24 @@ export const MessagingApp: React.FC = () => {
 
   return (
     <div className="h-screen bg-background">
+      {/* Offline indicator */}
+      {!isOnline && (
+        <Alert variant="destructive" className="rounded-none">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertDescription className="flex items-center gap-2">
+            <WifiOff className="h-4 w-4" />
+            You are offline. Messages will be sent when you're back online.
+            {offlineQueue.length > 0 && (
+              <span className="font-medium">
+                ({offlineQueue.length} message{offlineQueue.length !== 1 ? 's' : ''} queued)
+              </span>
+            )}
+          </AlertDescription>
+        </Alert>
+      )}
+
       {/* Desktop Layout */}
-      <div className="hidden lg:flex h-full">
+      <div className={`hidden lg:flex h-full ${!isOnline ? 'h-[calc(100%-40px)]' : ''}`}>
         {/* Sidebar - Conversations List */}
         <div className="w-1/3 border-r border-border">
           <ConversationsList
@@ -64,7 +98,7 @@ export const MessagingApp: React.FC = () => {
             />
           ) : (
             <div className="h-full flex items-center justify-center bg-muted/20">
-              <div className="text-center">
+              <div className="text-center max-w-md p-6">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
                     className="w-8 h-8 text-primary"
@@ -81,11 +115,30 @@ export const MessagingApp: React.FC = () => {
                   </svg>
                 </div>
                 <h3 className="text-lg font-medium text-foreground mb-2">
-                  Welcome to TrustNet ID
+                  Welcome to TrustNet ID Secure Messaging
                 </h3>
-                <p className="text-muted-foreground">
-                  Select a conversation to start messaging securely
+                <p className="text-muted-foreground mb-4">
+                  Select a conversation to start messaging securely with end-to-end encryption. 
+                  Your messages are private and can only be read by you and the recipient.
                 </p>
+                <div className="grid grid-cols-2 gap-2 text-sm text-center">
+                  <div className="p-3 border rounded-lg">
+                    <div className="font-medium mb-1">Privacy First</div>
+                    <p className="text-muted-foreground">End-to-end encrypted messages</p>
+                  </div>
+                  <div className="p-3 border rounded-lg">
+                    <div className="font-medium mb-1">Trust Based</div>
+                    <p className="text-muted-foreground">See trust scores of contacts</p>
+                  </div>
+                  <div className="p-3 border rounded-lg">
+                    <div className="font-medium mb-1">Share Securely</div>
+                    <p className="text-muted-foreground">Send encrypted files and voice</p>
+                  </div>
+                  <div className="p-3 border rounded-lg">
+                    <div className="font-medium mb-1">Works Offline</div>
+                    <p className="text-muted-foreground">Messages sync when online</p>
+                  </div>
+                </div>
               </div>
             </div>
           )}
@@ -93,7 +146,7 @@ export const MessagingApp: React.FC = () => {
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden h-full">
+      <div className={`lg:hidden h-full ${!isOnline ? 'h-[calc(100%-40px)]' : ''}`}>
         {showMobileChat && selectedConversation ? (
           <ChatView
             conversation={selectedConversation}

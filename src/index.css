@@ -1,176 +1,153 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system for TrustNet ID
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* Core colors for TrustNet ID app */
-    --background: 220 33% 98%;
-    --foreground: 220 60% 10%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 60% 10%;
-
+    --card-foreground: 222.2 84% 4.9%;
+ 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 60% 10%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
 
-    /* Primary color: Trustworthy blue */
-    --primary: 220 90% 60%;
-    --primary-foreground: 220 20% 98%;
+    --success: 142.1 76.2% 36.3%;
+    --success-foreground: 355.7 100% 97.3%;
 
-    /* Secondary color: Subtle slate */
-    --secondary: 220 20% 94%;
-    --secondary-foreground: 220 60% 30%;
+    --warning: 32 100% 50%;
+    --warning-foreground: 210 40% 98%;
 
-    /* Muted elements */
-    --muted: 220 15% 94%;
-    --muted-foreground: 220 15% 46%;
+    --verified: 142.1 76.2% 36.3%;
+    --verified-foreground: 355.7 100% 97.3%;
 
-    /* Accent color for highlights */
-    --accent: 213 90% 65%;
-    --accent-foreground: 213 100% 10%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
 
-    /* Alert/Destructive color */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 
-    /* Success color */
-    --success: 142 76% 36%;
-    --success-foreground: 0 0% 98%;
-
-    /* Warning color */
-    --warning: 38 92% 50%;
-    --warning-foreground: 38 100% 10%;
-
-    /* Verified color */
-    --verified: 193 98% 70%;
-    --verified-foreground: 220 60% 10%;
-
-    /* Borders and inputs */
-    --border: 220 20% 88%;
-    --input: 220 20% 88%;
-    --ring: 220 90% 60%;
-
-    /* Encryption visualization colors */
-    --encryption-dark: 220 90% 30%;
-    --encryption-light: 220 90% 85%;
-
-    /* UI border radius */
-    --radius: 0.65rem;
-
-    /* Chat UI */
-    --sent-message: 220 90% 60%;
-    --sent-message-foreground: 220 20% 98%;
-    --received-message: 220 30% 96%;
-    --received-message-foreground: 220 60% 10%;
-
-    /* Web3 specific */
-    --blockchain-primary: 235 70% 60%;
-    --blockchain-secondary: 235 30% 92%;
-
-    /* Sidebar */
-    --sidebar-background: 220 33% 98%;
-    --sidebar-foreground: 220 60% 30%;
-    --sidebar-primary: 220 90% 60%;
-    --sidebar-primary-foreground: 220 20% 98%;
-    --sidebar-accent: 213 90% 65%;
-    --sidebar-accent-foreground: 213 100% 10%;
-    --sidebar-border: 220 20% 88%;
-    --sidebar-ring: 220 90% 60%;
-
-    /* Animation values */
     --transition-fast: 150ms;
     --transition-normal: 250ms;
     --transition-slow: 350ms;
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px hsla(220, 60%, 10%, 0.05);
-    --shadow-md: 0 2px 6px hsla(220, 60%, 10%, 0.08);
-    --shadow-lg: 0 8px 16px hsla(220, 60%, 10%, 0.1);
-    --shadow-xl: 0 12px 24px hsla(220, 60%, 10%, 0.15);
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 221.2 83.2% 53.3%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 240, 4%, 95%;
+    --sidebar-accent-foreground: 240, 6%, 10%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 222.2 84% 4.9%;
+
+    --sent-message: 221.2 83.2% 53.3%;
+    --sent-message-foreground: 210 40% 98%;
+    --received-message: 210 40% 96.1%;
+    --received-message-foreground: 222.2 47.4% 11.2%;
+
+    --blockchain-primary: 260, 100%, 60%;
+    --blockchain-secondary: 260, 100%, 50%;
+
+    --encryption-dark: 217, 91%, 60%;
+    --encryption-light: 217, 91%, 75%;
+
+    /* Trust badge colors */
+    --trust-bronze: 30, 80%, 40%;
+    --trust-silver: 220, 10%, 70%;
+    --trust-gold: 45, 90%, 50%;
+    --trust-legend: 270, 80%, 60%;
   }
-
+ 
   .dark {
-    /* Core colors for TrustNet ID app */
-    --background: 220 25% 10%;
-    --foreground: 220 20% 98%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
 
-    --card: 220 20% 12%;
-    --card-foreground: 220 20% 98%;
+    --success: 142.1 70.6% 45.3%;
+    --success-foreground: 144.9 80.4% 10%;
 
-    --popover: 220 20% 12%;
-    --popover-foreground: 220 20% 98%;
+    --warning: 32 100% 50%;
+    --warning-foreground: 210 40% 98%;
 
-    /* Primary color: Trustworthy blue */
-    --primary: 220 90% 65%;
-    --primary-foreground: 220 20% 8%;
+    --verified: 142.1 70.6% 45.3%;
+    --verified-foreground: 355.7 100% 97.3%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
 
-    /* Secondary color: Subtle slate */
-    --secondary: 220 15% 20%;
-    --secondary-foreground: 220 20% 98%;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.4);
 
-    /* Muted elements */
-    --muted: 220 15% 20%;
-    --muted-foreground: 220 15% 70%;
+    --sidebar-background: 220 14% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 217.2 91.2% 59.8%;
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
+    --sidebar-accent: 220, 13%, 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 15.5%;
+    --sidebar-ring: 212.7 26.8% 83.9%;
 
-    /* Accent color for highlights */
-    --accent: 213 90% 65%;
-    --accent-foreground: 220 20% 8%;
+    --sent-message: 217.2 91.2% 59.8%;
+    --sent-message-foreground: 222.2 47.4% 11.2%;
+    --received-message: 217.2 32.6% 17.5%;
+    --received-message-foreground: 210 40% 98%;
 
-    /* Alert/Destructive color */
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --blockchain-primary: 260, 100%, 80%;
+    --blockchain-secondary: 260, 100%, 70%;
 
-    /* Success color */
-    --success: 142 76% 36%;
-    --success-foreground: 0 0% 98%;
+    --encryption-dark: 217, 91%, 70%;
+    --encryption-light: 217, 91%, 85%;
 
-    /* Warning color */
-    --warning: 38 92% 50%;
-    --warning-foreground: 38 100% 10%;
-
-    /* Verified color */
-    --verified: 193 98% 70%;
-    --verified-foreground: 220 20% 8%;
-
-    /* Borders and inputs */
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 220 90% 65%;
-
-    /* Encryption visualization colors */
-    --encryption-dark: 220 90% 40%;
-    --encryption-light: 220 90% 60%;
-
-    /* Chat UI */
-    --sent-message: 220 90% 60%;
-    --sent-message-foreground: 220 20% 98%;
-    --received-message: 220 20% 18%;
-    --received-message-foreground: 220 20% 90%;
-
-    /* Web3 specific */
-    --blockchain-primary: 235 70% 60%;
-    --blockchain-secondary: 235 30% 25%;
-
-    /* Sidebar */
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 220 20% 90%;
-    --sidebar-primary: 220 90% 65%;
-    --sidebar-primary-foreground: 220 20% 8%;
-    --sidebar-accent: 213 90% 65%;
-    --sidebar-accent-foreground: 213 100% 10%;
-    --sidebar-border: 220 20% 20%;
-    --sidebar-ring: 220 90% 65%;
-
-    /* Shadows (darker in dark mode) */
-    --shadow-sm: 0 1px 2px hsla(220, 40%, 2%, 0.4);
-    --shadow-md: 0 2px 6px hsla(220, 40%, 2%, 0.6);
-    --shadow-lg: 0 8px 16px hsla(220, 40%, 2%, 0.8);
-    --shadow-xl: 0 12px 24px hsla(220, 40%, 2%, 1);
+    /* Trust badge colors - dark mode */
+    --trust-bronze: 30, 80%, 50%;
+    --trust-silver: 220, 10%, 80%;
+    --trust-gold: 45, 90%, 60%;
+    --trust-legend: 270, 80%, 70%;
   }
 }
 
@@ -178,8 +155,71 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Animations for typing indicators */
+.dot-typing {
+  position: relative;
+  animation: dotTyping 1.5s infinite linear;
+}
+
+@keyframes dotTyping {
+  0% {
+    box-shadow: 9984px 0 0 0 hsl(var(--primary)), 
+                9999px 0 0 0 hsl(var(--primary)), 
+                10014px 0 0 0 hsl(var(--primary));
+  }
+  16.667% {
+    box-shadow: 9984px -10px 0 0 hsl(var(--primary)), 
+                9999px 0 0 0 hsl(var(--primary)), 
+                10014px 0 0 0 hsl(var(--primary));
+  }
+  33.333% {
+    box-shadow: 9984px 0 0 0 hsl(var(--primary)), 
+                9999px 0 0 0 hsl(var(--primary)), 
+                10014px 0 0 0 hsl(var(--primary));
+  }
+  50% {
+    box-shadow: 9984px 0 0 0 hsl(var(--primary)), 
+                9999px -10px 0 0 hsl(var(--primary)), 
+                10014px 0 0 0 hsl(var(--primary));
+  }
+  66.667% {
+    box-shadow: 9984px 0 0 0 hsl(var(--primary)), 
+                9999px 0 0 0 hsl(var(--primary)), 
+                10014px 0 0 0 hsl(var(--primary));
+  }
+  83.333% {
+    box-shadow: 9984px 0 0 0 hsl(var(--primary)), 
+                9999px 0 0 0 hsl(var(--primary)), 
+                10014px -10px 0 0 hsl(var(--primary));
+  }
+  100% {
+    box-shadow: 9984px 0 0 0 hsl(var(--primary)), 
+                9999px 0 0 0 hsl(var(--primary)), 
+                10014px 0 0 0 hsl(var(--primary));
   }
 }
