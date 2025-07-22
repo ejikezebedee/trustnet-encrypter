@@ -128,19 +128,6 @@ export const LoginScreen: React.FC = () => {
               </Button>
             </div>
 
-            <div className="text-center space-y-4">
-              <div className="text-sm text-muted-foreground">
-                Demo Credentials:
-              </div>
-              <div className="grid gap-2 text-xs bg-muted/50 p-3 rounded-lg">
-                <div>
-                  <strong>Admin:</strong> admin@trustnet.app / DemoAdmin123!
-                </div>
-                <div>
-                  <strong>User:</strong> any email / any password
-                </div>
-              </div>
-            </div>
           </CardContent>
         </Card>
       </div>
