@@ -5,7 +5,8 @@ import {
   Message, 
   Conversation, 
   MessageAttachment,
-  DeliveryStatus
+  DeliveryStatus,
+  TrustBadge
 } from "./types";
 import { MessageStatus } from "./status";
 import { compressImage } from "./fileHandling";
@@ -69,7 +70,7 @@ export const listConversations = async (
         return {
           peerAddress: conv.peerAddress,
           messages: messages,
-          lastMessageTime: lastMsg ? lastMsg.sentAt : new Date(),
+          lastMessageTime: lastMsg ? (lastMsg.sentAt || lastMsg.timestamp) : new Date(),
           unreadCount: 0, // Would need to implement read tracking
           isBlocked: false, // Would be tracked in a separate service
           isVerified: false, // Would need verification logic
@@ -100,6 +101,7 @@ export const loadMessages = async (
       senderAddress: msg.senderAddress,
       recipientAddress: conversation.peerAddress,
       content: msg.content as string,
+      timestamp: msg.sent,
       sentAt: msg.sent,
       status: MessageStatus.DELIVERED, // Simplified for now
       attachments: [], // Would need additional parsing for attachments
@@ -128,6 +130,7 @@ export const sendMessage = async (
       senderAddress: xmtpMessage.senderAddress,
       recipientAddress: conversation.peerAddress,
       content: xmtpMessage.content as string,
+      timestamp: xmtpMessage.sent,
       sentAt: xmtpMessage.sent,
       status: MessageStatus.SENT,
       attachments: [],
@@ -193,6 +196,7 @@ export const sendMessageWithAttachments = async (
       senderAddress: xmtpMessage.senderAddress,
       recipientAddress: conversation.peerAddress,
       content,
+      timestamp: xmtpMessage.sent,
       sentAt: xmtpMessage.sent,
       status: MessageStatus.SENT,
       attachments: processedAttachments,
@@ -236,6 +240,7 @@ export const createMessageListener = async (
         senderAddress: xmtpMessage.senderAddress,
         recipientAddress: conversation.peerAddress,
         content: content,
+        timestamp: xmtpMessage.sent,
         sentAt: xmtpMessage.sent,
         status: MessageStatus.DELIVERED,
         attachments: attachments,
@@ -269,7 +274,7 @@ export const createMessageListener = async (
  * @param score The trust score (0-100)
  * @returns The appropriate trust badge
  */
-export const getTrustBadgeFromScore = (score: number) => {
+export const getTrustBadgeFromScore = (score: number): TrustBadge => {
   if (score >= 90) return "legend";
   if (score >= 75) return "gold";
   if (score >= 50) return "silver";

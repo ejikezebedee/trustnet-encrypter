@@ -6,7 +6,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Eye, EyeOff, Keyboard, Users, UserCheck, Shield } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff, Keyboard, Users, UserCheck, Shield, Globe } from "lucide-react";
 import { LanguageSelector } from "./LanguageSelector";
 
 interface PrivacySettingsProps {

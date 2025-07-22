@@ -217,6 +217,7 @@ export const ChatView: React.FC<ChatViewProps> = ({ conversation, onBack }) => {
         senderAddress: wallet?.address || "",
         recipientAddress: conversation.peerAddress,
         content: messageContent,
+        timestamp: new Date(),
         sentAt: new Date(),
         status: MessageStatus.QUEUED,
         attachments: filesToSend.map((file, index) => ({

@@ -6,4 +6,24 @@ export * from './core';
 export * from './fileHandling';
 export * from './encryption';
 
-// Additional utilities and functions can be added here for direct export
+// Re-export specific functions with clear names
+export { 
+  sendMessageWithAttachments,
+  markMessageAsRead,
+  canInitiateConversation,
+  getTrustBadgeFromScore,
+  markConversationAsRead 
+} from './core';
+
+export { 
+  validateFile, 
+  getFileTypeCategory,
+  compressImage,
+  processVoiceRecording,
+  generatePreviewUrl 
+} from './fileHandling';
+
+export { 
+  getTypingIndicatorText,
+  getMessageStatusText 
+} from './status';

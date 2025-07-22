@@ -20,7 +20,7 @@ import {
 } from "lucide-react";
 import { useWallet } from "@/contexts/WalletContext";
 import { formatAddress, isValidAddress } from "@/lib/web3/wallet";
-import { Conversation, canInitiateConversation } from "@/lib/web3/messaging";
+import { Conversation, canInitiateConversation, TrustBadge, getTrustBadgeFromScore } from "@/lib/web3/messaging";
 import { useToast } from "@/hooks/use-toast";
 import { UserTrustIndicator } from "./UserTrustIndicator";
 import { PrivacySettings } from "./PrivacySettings";
@@ -125,7 +125,7 @@ export const ConversationsList: React.FC<ConversationsListProps> = ({
         isBlocked: blockedUsers.includes(newAddress),
         isVerified: Math.random() > 0.7, // Random for demo
         trustScore: randomTrustScore,
-        trustBadge: getTrustBadgeFromScore(randomTrustScore),
+        trustBadge: getTrustBadgeFromScore(randomTrustScore) as TrustBadge,
       };
 
       onSelectConversation(newConversation);
@@ -181,13 +181,6 @@ export const ConversationsList: React.FC<ConversationsListProps> = ({
     return date.toLocaleDateString();
   };
 
-  function getTrustBadgeFromScore(score: number): string {
-    if (score >= 90) return "legend";
-    if (score >= 75) return "gold";
-    if (score >= 50) return "silver";
-    if (score >= 25) return "bronze";
-    return "none";
-  }
 
   if (showSettings) {
     return <PrivacySettings onBack={() => setShowSettings(false)} />;

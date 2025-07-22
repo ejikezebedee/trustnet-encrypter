@@ -7,7 +7,8 @@ export interface Message {
   senderAddress: string;
   recipientAddress: string;
   content: string;
-  sentAt: Date;
+  timestamp: Date;
+  sentAt?: Date;
   status: MessageStatus;
   attachments?: MessageAttachment[];
   isOfflineQueued?: boolean;
@@ -40,13 +41,7 @@ export interface Conversation {
 }
 
 // Trust badge levels
-export enum TrustBadge {
-  NONE = "none",
-  BRONZE = "bronze",
-  SILVER = "silver",
-  GOLD = "gold",
-  LEGEND = "legend"
-}
+export type TrustBadge = "none" | "bronze" | "silver" | "gold" | "legend";
 
 // Message delivery status
 export enum DeliveryStatus {
