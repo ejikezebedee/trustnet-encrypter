@@ -214,9 +214,7 @@ export const FirebaseChatView: React.FC<FirebaseChatViewProps> = ({
   };
 
   const handleVoiceRecordingComplete = (audioBlob: Blob) => {
-    const audioFile = new File([audioBlob], 'voice-message.webm', { 
-      type: 'audio/webm' 
-    });
+    const audioFile = new File([audioBlob], 'voice-message.webm', { type: 'audio/webm' });
     setSelectedFiles(prev => [...prev, audioFile]);
     setShowVoiceRecording(false);
   };

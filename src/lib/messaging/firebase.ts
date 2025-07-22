@@ -290,13 +290,7 @@ export const listenToMessages = (
 /**
  * Creates a message listener (alias for listenToMessages)
  */
-export const createMessageListener = (
-  conversationId: string,
-  userAddress: string,
-  onNewMessage: (message: Message) => void
-): (() => void) => {
-  return listenToMessages(conversationId, userAddress, onNewMessage);
-};
+export const createMessageListener = listenToMessages;
 
 /**
  * Gets all conversations for a user
