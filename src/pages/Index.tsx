@@ -1,12 +1,23 @@
 import React from "react";
-import { WalletProvider } from "@/contexts/WalletContext";
-import { MessagingApp } from "@/components/messaging/MessagingApp";
+import { AuthProvider, useAuth } from "@/contexts/AuthContext";
+import { LoginScreen } from "@/components/auth/LoginScreen";
+import { MainApp } from "@/components/layout/MainApp";
+
+const AppContent = () => {
+  const { isAuthenticated } = useAuth();
+  
+  if (!isAuthenticated) {
+    return <LoginScreen />;
+  }
+  
+  return <MainApp />;
+};
 
 const Index = () => {
   return (
-    <WalletProvider>
-      <MessagingApp />
-    </WalletProvider>
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 };
 
