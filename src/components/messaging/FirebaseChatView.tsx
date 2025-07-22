@@ -214,7 +214,11 @@ export const FirebaseChatView: React.FC<FirebaseChatViewProps> = ({
   };
 
   const handleVoiceRecordingComplete = (audioBlob: Blob) => {
-    const audioFile = new File([audioBlob], 'voice-message.webm', { type: 'audio/webm' });
+    // Create File object with proper browser compatibility
+    const audioFile = Object.assign(audioBlob, {
+      name: 'voice-message.webm',
+      lastModified: Date.now()
+    }) as File;
     setSelectedFiles(prev => [...prev, audioFile]);
     setShowVoiceRecording(false);
   };
