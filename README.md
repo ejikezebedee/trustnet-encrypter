@@ -71,3 +71,7 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## OpenClaw + Gemma 4 deployment framework
+
+If you want to run OpenClaw on a VPS with a Gemma model backend, use the deployment framework in [`openclaw-gemma-framework`](./openclaw-gemma-framework/README.md).
