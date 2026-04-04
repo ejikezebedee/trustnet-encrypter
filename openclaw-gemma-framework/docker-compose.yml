@@ -1,0 +1,63 @@
+services:
+  gemma-runtime:
+    image: vllm/vllm-openai:latest
+    container_name: gemma-runtime
+    restart: unless-stopped
+    command: >
+      --model ${MODEL_ID:-google/gemma-4-27b-it}
+      --host 0.0.0.0
+      --port 8000
+      --gpu-memory-utilization ${GPU_MEMORY_UTILIZATION:-0.90}
+      --max-model-len ${MAX_MODEL_LEN:-8192}
+      --tensor-parallel-size ${TENSOR_PARALLEL_SIZE:-1}
+    environment:
+      HUGGING_FACE_HUB_TOKEN: ${HUGGING_FACE_HUB_TOKEN}
+    volumes:
+      - ./data/hf-cache:/root/.cache/huggingface
+    ports:
+      - "8000:8000"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  litellm-proxy:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: litellm-proxy
+    restart: unless-stopped
+    command:
+      - "--config"
+      - "/app/configs/litellm-config.yaml"
+      - "--port"
+      - "4000"
+      - "--host"
+      - "0.0.0.0"
+    environment:
+      LITELLM_MASTER_KEY: ${LITELLM_MASTER_KEY:-changeme-master-key}
+      LITELLM_SALT_KEY: ${LITELLM_SALT_KEY:-changeme-salt-key}
+    volumes:
+      - ./configs/litellm-config.yaml:/app/configs/litellm-config.yaml:ro
+    depends_on:
+      - gemma-runtime
+    ports:
+      - "4000:4000"
+
+  openclaw:
+    image: ${OPENCLAW_IMAGE:-ghcr.io/openclaw/openclaw:latest}
+    container_name: openclaw
+    restart: unless-stopped
+    environment:
+      OPENAI_API_BASE: http://litellm-proxy:4000/v1
+      OPENAI_API_KEY: ${LITELLM_MASTER_KEY:-changeme-master-key}
+      OPENAI_MODEL: ${OPENCLAW_MODEL_ALIAS:-gemma-4}
+    depends_on:
+      - litellm-proxy
+    ports:
+      - "3000:3000"
+
+networks:
+  default:
+    name: openclaw-gemma-net
