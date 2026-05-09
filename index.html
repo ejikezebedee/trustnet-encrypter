@@ -3,22 +3,444 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TrustNet ID - Secure Web3 Messaging</title>
-    <meta name="description" content="End-to-end encrypted messaging powered by Web3 and blockchain technology" />
-    <meta name="author" content="TrustNet" />
+    <meta name="theme-color" content="#07142f" />
+    <meta
+      name="description"
+      content="Apex Brokerage is an AI-powered European digital insurance brokerage website for Germany and EU-focused business and private insurance reviews."
+    />
+    <meta
+      name="keywords"
+      content="AI insurance brokerage Germany, EU insurance broker, cyber insurance, business insurance, private insurance, GDPR-conscious insurance advisory"
+    />
+    <meta name="author" content="Apex Brokerage" />
+    <link rel="canonical" href="https://www.apexbrokerage.eu/" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307142f'/%3E%3Cpath d='M14 48 32 12l18 36h-9l-3.5-8h-11L23 48h-9Zm16-16h5l-2.5-6-2.5 6Z' fill='%233bb7ff'/%3E%3C/svg%3E" />
 
-    <meta property="og:title" content="TrustNet ID - Secure Web3 Messaging" />
-    <meta property="og:description" content="End-to-end encrypted messaging powered by Web3 and blockchain technology" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-
+    <meta property="og:title" content="Apex Brokerage | AI-Powered Insurance Brokerage for Germany & the EU" />
+    <meta
+      property="og:description"
+      content="Licensed-advisory-ready insurance brokerage frontend combining AI-assisted risk analysis, human expert review, and GDPR-conscious workflows."
+    />
+    <meta property="og:url" content="https://www.apexbrokerage.eu/" />
+    <meta property="og:image" content="./public/placeholder.svg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+    <meta name="twitter:title" content="Apex Brokerage | Smarter European Insurance Brokerage" />
+    <meta
+      name="twitter:description"
+      content="Premium AI-assisted insurance advisory for companies and private clients in Germany and the wider EU."
+    />
 
+    <title>Apex Brokerage | AI-Powered Insurance Brokerage for Germany & the EU</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" data-header>
+      <nav class="navbar" aria-label="Primary navigation">
+        <a class="brand" href="#home" aria-label="Apex Brokerage home">
+          <span class="brand-mark" aria-hidden="true">A</span>
+          <span>Apex Brokerage</span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" data-menu-toggle>
+          <span class="sr-only">Open menu</span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-panel" id="primary-menu" data-nav-panel>
+          <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#businesses">For Businesses</a></li>
+            <li><a href="#individuals">For Individuals</a></li>
+            <li><a href="#ai-advisory">AI Advisory</a></li>
+            <li><a href="#compliance">Compliance</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <a class="btn btn-primary nav-cta" href="#contact">Get Insurance Review</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section" id="home" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Germany & EU-focused digital insurance brokerage</p>
+            <h1 id="hero-title">Smarter Insurance Brokerage for Europe's Digital Economy</h1>
+            <p class="hero-subtitle">
+              Apex Brokerage combines insurance advisory workflows, AI-powered risk analysis, and transparent EU-focused
+              insurance solutions for companies, founders, families, and private clients.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#contact">Get Free Risk Review</a>
+              <a class="btn btn-secondary" href="#solutions">Explore Solutions</a>
+            </div>
+            <ul class="trust-list" aria-label="Apex Brokerage trust indicators">
+              <li>Germany & EU focused</li>
+              <li>Business and private clients</li>
+              <li>AI-assisted advisory</li>
+              <li>Human expert review</li>
+            </ul>
+          </div>
+
+          <aside class="hero-card reveal" aria-label="Risk intelligence dashboard preview">
+            <div class="dashboard-topline">
+              <span>Risk Intelligence</span>
+              <strong>Live Review</strong>
+            </div>
+            <div class="risk-score" aria-label="Coverage readiness score 92 percent">
+              <span>92%</span>
+              <p>Coverage readiness</p>
+            </div>
+            <div class="dashboard-list">
+              <div>
+                <span class="status-dot success"></span>
+                Cyber exposure mapped
+              </div>
+              <div>
+                <span class="status-dot"></span>
+                Liability gaps flagged
+              </div>
+              <div>
+                <span class="status-dot"></span>
+                Human advisor verification queued
+              </div>
+            </div>
+            <div class="mini-chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="credibility" aria-label="Credibility signals">
+        <div class="container credibility-grid">
+          <span>GDPR-conscious workflows</span>
+          <span>EU market focus</span>
+          <span>AI-assisted risk matching</span>
+          <span>Transparent brokerage process</span>
+          <span>Human advisor verification</span>
+        </div>
+      </section>
+
+      <section class="section" id="solutions" aria-labelledby="solutions-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Insurance solutions</p>
+            <h2 id="solutions-title">Coverage for modern companies and private lives</h2>
+            <p>
+              Quickly identify relevant policies, compare protection levels, and move from uncertainty to a human-reviewed
+              insurance plan built around your real risk profile.
+            </p>
+          </div>
+          <div class="cards-grid solutions-grid">
+            <article class="solution-card reveal">
+              <span class="card-icon">▣</span>
+              <h3>Business Insurance</h3>
+              <p>Commercial coverage planning for operational, contractual, and property-related risks.</p>
+              <small>Ideal for: SMEs, scaleups, service companies</small>
+              <a href="#contact">Request Advice</a>
+            </article>
+            <article class="solution-card reveal">
+              <span class="card-icon">⚖</span>
+              <h3>Professional Liability</h3>
+              <p>Protection guidance for advice, delivery, management, and professional service exposures.</p>
+              <small>Ideal for: consultants, agencies, freelancers</small>
+              <a href="#contact">Request Advice</a>
+            </article>
+            <article class="solution-card reveal">
+              <span class="card-icon">◆</span>
+              <h3>Cyber Insurance</h3>
+              <p>Cyber risk review for data incidents, business interruption, recovery costs, and third-party claims.</p>
+              <small>Ideal for: SaaS, ecommerce, healthcare, fintech</small>
+              <a href="#contact">Request Advice</a>
+            </article>
+            <article class="solution-card reveal">
+              <span class="card-icon">▰</span>
+              <h3>Fleet & Commercial Vehicle Insurance</h3>
+              <p>Fleet coverage comparison for vehicle-dependent teams, logistics operators, and field services.</p>
+              <small>Ideal for: logistics, trades, delivery fleets</small>
+              <a href="#contact">Request Advice</a>
+            </article>
+            <article class="solution-card reveal">
+              <span class="card-icon">✚</span>
+              <h3>Health & Life Insurance</h3>
+              <p>Human-guided comparison of health, life, and long-term protection options for changing needs.</p>
+              <small>Ideal for: families, founders, executives</small>
+              <a href="#contact">Request Advice</a>
+            </article>
+            <article class="solution-card reveal">
+              <span class="card-icon">⌂</span>
+              <h3>Property & Asset Protection</h3>
+              <p>Insurance guidance for homes, offices, equipment, inventory, and valuable business assets.</p>
+              <small>Ideal for: property owners, retailers, offices</small>
+              <a href="#contact">Request Advice</a>
+            </article>
+            <article class="solution-card reveal">
+              <span class="card-icon">◈</span>
+              <h3>Private Client Insurance</h3>
+              <p>Personal coverage coordination across home, vehicle, travel, health, and family protection needs.</p>
+              <small>Ideal for: individuals, households, expats</small>
+              <a href="#contact">Request Advice</a>
+            </article>
+            <article class="solution-card reveal">
+              <span class="card-icon">▲</span>
+              <h3>Startup & SME Insurance Packages</h3>
+              <p>Practical insurance bundles aligned to funding, hiring, customer contracts, and expansion plans.</p>
+              <small>Ideal for: founders, SMEs, venture-backed teams</small>
+              <a href="#contact">Request Advice</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split-section navy" id="businesses" aria-labelledby="business-title">
+        <div class="container split-grid">
+          <div class="split-copy reveal">
+            <p class="eyebrow">For businesses</p>
+            <h2 id="business-title">Insurance clarity for companies that cannot afford coverage gaps</h2>
+            <p>
+              Apex Brokerage supports companies, startups, SMEs, consultants, logistics firms, healthcare providers, and
+              digital businesses with structured insurance reviews that connect risk, contracts, people, and growth plans.
+            </p>
+            <a class="btn btn-primary" href="#contact">Book Business Insurance Audit</a>
+          </div>
+          <div class="feature-panel reveal">
+            <ul class="check-list">
+              <li>Risk audit across operations, contracts, assets, and people</li>
+              <li>Policy comparison designed for transparent decision-making</li>
+              <li>Claims support preparation and documentation guidance</li>
+              <li>Cyber and liability protection for digital-first businesses</li>
+              <li>Employee insurance benefits and retention-focused coverage</li>
+              <li>AI-assisted coverage gap detection reviewed by specialists</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section split-section" id="individuals" aria-labelledby="individual-title">
+        <div class="container split-grid reverse-mobile">
+          <div class="feature-panel light reveal">
+            <ul class="check-list dark">
+              <li>Health insurance guidance for Germany and cross-border life events</li>
+              <li>Life insurance planning for family and income protection</li>
+              <li>Disability protection aligned to profession and lifestyle</li>
+              <li>Home insurance review for tenants and property owners</li>
+              <li>Vehicle insurance comparison for personal mobility</li>
+              <li>Expat and newcomer insurance support in Germany</li>
+            </ul>
+          </div>
+          <div class="split-copy reveal">
+            <p class="eyebrow">For individuals</p>
+            <h2 id="individual-title">Personal insurance decisions, explained in plain language</h2>
+            <p>
+              From moving to Germany to protecting your family, Apex Brokerage helps private clients understand options,
+              avoid duplicate coverage, and request human-reviewed insurance recommendations.
+            </p>
+            <a class="btn btn-primary" href="#contact">Compare Personal Coverage</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section ai-section" id="ai-advisory" aria-labelledby="ai-title">
+        <div class="container ai-grid">
+          <div class="section-heading left reveal">
+            <p class="eyebrow">Responsible AI advisory</p>
+            <h2 id="ai-title">AI accelerates insight. Human advisors remain accountable.</h2>
+            <p>
+              Apex Brokerage uses AI to make insurance discovery faster and more consistent while keeping final advisory
+              recommendations under human expert review.
+            </p>
+          </div>
+          <div class="ai-steps reveal">
+            <div><strong>01</strong><span>AI analyses client risk profiles and business context.</span></div>
+            <div><strong>02</strong><span>AI compares coverage needs against typical policy categories.</span></div>
+            <div><strong>03</strong><span>AI identifies potential gaps, overlaps, and document review priorities.</span></div>
+            <div><strong>04</strong><span>Human advisors make final recommendations; no fully automated final insurance decision is made without expert review.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="process" aria-labelledby="process-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Simple process</p>
+            <h2 id="process-title">From risk profile to tailored insurance options</h2>
+          </div>
+          <div class="timeline">
+            <article class="timeline-card reveal"><span>1</span><h3>Submit your risk profile</h3><p>Share your client type, country, coverage interests, and key insurance questions.</p></article>
+            <article class="timeline-card reveal"><span>2</span><h3>AI-assisted coverage analysis</h3><p>Structured analysis highlights likely needs, missing documents, and coverage gap signals.</p></article>
+            <article class="timeline-card reveal"><span>3</span><h3>Human advisor review</h3><p>An insurance professional reviews context, regulatory requirements, and suitable next steps.</p></article>
+            <article class="timeline-card reveal"><span>4</span><h3>Receive tailored insurance options</h3><p>Compare clear options and decide with confidence before any policy application or change.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section compliance-section" id="compliance" aria-labelledby="compliance-title">
+        <div class="container compliance-card reveal">
+          <div>
+            <p class="eyebrow">Compliance & data protection</p>
+            <h2 id="compliance-title">Built for trust, consent, and EU-oriented brokerage standards</h2>
+            <p>
+              Apex Brokerage is designed for licensed insurance brokerage operations and can be adapted to your regulatory
+              setup. The frontend uses clear consent language, secure form-submission design principles, and no unnecessary
+              data collection.
+            </p>
+          </div>
+          <div class="compliance-points">
+            <span>GDPR-conscious data handling</span>
+            <span>Clear contact consent</span>
+            <span>Minimal data collection</span>
+            <span>Human-reviewed advisory process</span>
+            <span>EU-oriented brokerage workflows</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="container contact-grid">
+          <div class="contact-copy reveal">
+            <p class="eyebrow">Request your review</p>
+            <h2 id="contact-title">Start with a free insurance risk review</h2>
+            <p>
+              Tell us what you want to protect. We will validate your details, simulate a secure submission, and show a
+              confirmation message without sending data to a backend.
+            </p>
+            <div class="contact-note">
+              <strong>Typical response focus:</strong> coverage gaps, required documents, priority risks, and recommended advisor follow-up.
+            </div>
+          </div>
+
+          <form class="lead-form reveal" id="lead-form" novalidate>
+            <div class="form-row">
+              <label for="full-name">Full name</label>
+              <input id="full-name" name="fullName" type="text" autocomplete="name" required />
+              <span class="error-message" data-error-for="full-name"></span>
+            </div>
+            <div class="form-row two-columns">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+                <span class="error-message" data-error-for="email"></span>
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+                <span class="error-message" data-error-for="phone"></span>
+              </div>
+            </div>
+            <div class="form-row two-columns">
+              <div>
+                <label for="client-type">Client type</label>
+                <select id="client-type" name="clientType" required>
+                  <option value="">Select one</option>
+                  <option>Business</option>
+                  <option>Individual</option>
+                </select>
+                <span class="error-message" data-error-for="client-type"></span>
+              </div>
+              <div>
+                <label for="country">Country</label>
+                <input id="country" name="country" type="text" autocomplete="country-name" required />
+                <span class="error-message" data-error-for="country"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="interest">Insurance interest</label>
+              <select id="interest" name="interest" required>
+                <option value="">Select insurance interest</option>
+                <option>Business Insurance</option>
+                <option>Professional Liability</option>
+                <option>Cyber Insurance</option>
+                <option>Fleet & Commercial Vehicle Insurance</option>
+                <option>Health & Life Insurance</option>
+                <option>Property & Asset Protection</option>
+                <option>Private Client Insurance</option>
+                <option>Startup & SME Insurance Packages</option>
+              </select>
+              <span class="error-message" data-error-for="interest"></span>
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Tell us about your company, family, risk concern, or upcoming policy renewal."></textarea>
+              <span class="error-message" data-error-for="message"></span>
+            </div>
+            <div class="consent-row">
+              <input id="consent" name="consent" type="checkbox" required />
+              <label for="consent">I consent to being contacted by Apex Brokerage about my insurance review request.</label>
+            </div>
+            <span class="error-message" data-error-for="consent"></span>
+            <button class="btn btn-primary btn-full" type="submit">Request Insurance Review</button>
+            <p class="form-success" id="form-success" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="faq-title">Common questions</h2>
+          </div>
+          <div class="faq-grid">
+            <details class="reveal"><summary>Is Apex Brokerage for businesses or individuals?</summary><p>Both. The experience is designed for B2B teams and B2C private clients seeking structured, human-reviewed insurance guidance.</p></details>
+            <details class="reveal"><summary>Does AI replace a human insurance advisor?</summary><p>No. AI supports risk analysis and document review, while human advisors remain responsible for final recommendations.</p></details>
+            <details class="reveal"><summary>Can you help clients in Germany?</summary><p>Yes. The site and service positioning are Germany-focused, including support for private clients, businesses, and newcomers.</p></details>
+            <details class="reveal"><summary>Do you support EU businesses?</summary><p>Yes. Apex Brokerage is positioned for EU-oriented companies that need clear insurance comparisons and coverage gap analysis.</p></details>
+            <details class="reveal"><summary>Is my data handled securely?</summary><p>The frontend is designed around GDPR-conscious principles, minimal data collection, clear consent, and secure submission workflows.</p></details>
+            <details class="reveal"><summary>Can startups and SMEs request insurance packages?</summary><p>Yes. Startups and SMEs can request package guidance for liability, cyber, employee benefits, property, and growth-stage risks.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" aria-labelledby="final-cta-title">
+        <div class="container final-cta-inner reveal">
+          <h2 id="final-cta-title">Protect your business, family, and future with smarter insurance brokerage.</h2>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Start Free Review</a>
+            <a class="btn btn-secondary light" href="#contact">Contact Apex Brokerage</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#home"><span class="brand-mark" aria-hidden="true">A</span><span>Apex Brokerage</span></a>
+          <p>AI-assisted, human-reviewed insurance brokerage workflows for Germany and the European Union.</p>
+        </div>
+        <div>
+          <h3>Navigation</h3>
+          <a href="#solutions">Solutions</a>
+          <a href="#businesses">For Businesses</a>
+          <a href="#individuals">For Individuals</a>
+          <a href="#ai-advisory">AI Advisory</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <a href="mailto:contact@apexbrokerage.eu">contact@apexbrokerage.eu</a>
+          <span>Germany / European Union</span>
+        </div>
+        <div>
+          <h3>Legal</h3>
+          <a href="#compliance">Imprint</a>
+          <a href="#compliance">Privacy Policy</a>
+          <a href="#compliance">Terms</a>
+          <a href="#compliance">Compliance</a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span id="current-year">2026</span> Apex Brokerage. All rights reserved.</p>
+        <p>This website is a production-ready frontend template. Regulatory, licensing, imprint, and brokerage registration details must be added before public launch.</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
   </body>
 </html>
