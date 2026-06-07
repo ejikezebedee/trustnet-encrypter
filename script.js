@@ -5,6 +5,8 @@ const form = document.querySelector('#lead-form');
 const successMessage = document.querySelector('#form-success');
 const currentYear = document.querySelector('#current-year');
 
+document.documentElement.classList.add('js');
+
 if (currentYear) {
   currentYear.textContent = new Date().getFullYear();
 }
